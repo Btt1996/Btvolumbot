@@ -1,4 +1,5 @@
 import os
+import asyncio
 import subprocess
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes, CallbackQueryHandler
@@ -76,4 +77,4 @@ if __name__ == "__main__":
         app.add_handler(CallbackQueryHandler(process_audio))
 
         print("Bot is starting...")
-        app.run_polling()
+        app.run_polling(drop_pending_updates=True)
